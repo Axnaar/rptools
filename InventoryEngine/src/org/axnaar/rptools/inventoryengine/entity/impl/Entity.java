@@ -11,7 +11,7 @@ import org.axnaar.rptools.inventoryengine.entity.property.Property;
 public class Entity implements org.axnaar.rptools.inventoryengine.entity.Entity {
 
 	
-	HashMap<String, Property> properties = new HashMap<String, Property>(); //HashMap<String, Property>();
+	Map<String, Property> properties = new HashMap<String, Property>(); //HashMap<String, Property>();
 	
 	@Override
 	public Map<String, Property> getProperties() {
@@ -25,18 +25,20 @@ public class Entity implements org.axnaar.rptools.inventoryengine.entity.Entity 
 		return result;
 	}
 
-	
-
 	@Override
 	public Property setProperty(String name, Property property) {
-		// TODO Auto-generated method stub
-		return null;
+		if(properties.containsKey(name)){
+			properties.put(name, property);
+			return null;
+		}else{
+			return addProperty(name, property);
+		}
 	}
 
 	@Override
 	public Property addProperty(String name, Property property) {
-		// TODO Auto-generated method stub
-		return null;
+		properties.put(name, property);
+		return property;
 	}
 
 	@Override
@@ -46,7 +48,6 @@ public class Entity implements org.axnaar.rptools.inventoryengine.entity.Entity 
 			properties.remove(property);
 			return property;
 		}
-			
 		return null;
 	}
 
