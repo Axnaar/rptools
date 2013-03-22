@@ -19,4 +19,6 @@ public class LongProperty implements Property {
 		this.value = Long.valueOf(value);
 	}
 
+	
+
 }

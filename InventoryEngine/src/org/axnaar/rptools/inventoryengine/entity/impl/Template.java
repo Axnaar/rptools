@@ -8,10 +8,11 @@ import java.util.Map;
 
 import org.axnaar.rptools.inventoryengine.entity.property.Property;
 
-public class Entity implements org.axnaar.rptools.inventoryengine.entity.Entity {
+public class Template implements org.axnaar.rptools.inventoryengine.entity.Template {
 
 	
-	Map<String, Property> properties = new HashMap<String, Property>(); //HashMap<String, Property>();
+	Map<String, Property> properties = new HashMap<String, Property>(); 
+	private String name = "Undefined";
 	
 	@Override
 	public Map<String, Property> getProperties() {
@@ -19,7 +20,7 @@ public class Entity implements org.axnaar.rptools.inventoryengine.entity.Entity 
 	}
 
 	@Override
-	public List<String> getNames() {
+	public List<String> getPropertyNames() {
 		List<String> result = new LinkedList<String>(properties.keySet()); 
 		Collections.sort(result);
 		return result;
@@ -51,4 +52,20 @@ public class Entity implements org.axnaar.rptools.inventoryengine.entity.Entity 
 		return null;
 	}
 
+	@Override
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name){
+		this.name = name;
+	}
+	
+	public Template() {
+		
+	}
+	
+	public Template(String name) {
+		setName(name);
+	}
 }

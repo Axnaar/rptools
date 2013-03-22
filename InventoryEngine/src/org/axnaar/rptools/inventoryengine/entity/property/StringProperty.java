@@ -21,4 +21,6 @@ public class StringProperty implements Property {
 		this.value = value;
 	}
 
+	
+
 }

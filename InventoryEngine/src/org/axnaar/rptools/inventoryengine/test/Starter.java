@@ -1,13 +1,15 @@
 package org.axnaar.rptools.inventoryengine.test;
 
+import org.axnaar.rptools.inventoryengine.InventoryEngine;
+
 public class Starter {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		InventoryEngine engine = new InventoryEngine();
+		
 	}
 
 }
