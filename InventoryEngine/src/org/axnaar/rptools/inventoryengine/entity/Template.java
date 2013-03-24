@@ -9,11 +9,10 @@ import org.axnaar.rptools.inventoryengine.entity.property.Property;
 public interface Template {
 
 	
-	public Map<String, Property> getProperties();
+	public Map<String, String> getProperties();
 	public List<String> getPropertyNames();
-	public Property removeProperty(String name);
-	public Property setProperty(String name, Property property);
-	public Property addProperty(String name, Property property);
+	public String removeProperty(String name);
+	public String addProperty(String name, String property);
 	public String getName();
 	
 }

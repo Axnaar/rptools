@@ -1,6 +1,6 @@
 package org.axnaar.rptools.inventoryengine.entity.property;
 
-public class StringProperty implements Property {
+public class StringProperty extends Property {
 	
 	private String value = "";	
 	
@@ -21,6 +21,6 @@ public class StringProperty implements Property {
 		this.value = value;
 	}
 
-	
+
 
 }

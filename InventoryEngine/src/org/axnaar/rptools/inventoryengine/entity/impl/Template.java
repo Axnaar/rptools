@@ -11,11 +11,11 @@ import org.axnaar.rptools.inventoryengine.entity.property.Property;
 public class Template implements org.axnaar.rptools.inventoryengine.entity.Template {
 
 	
-	Map<String, Property> properties = new HashMap<String, Property>(); 
+	Map<String, String> properties = new HashMap<String, String>(); 
 	private String name = "Undefined";
 	
 	@Override
-	public Map<String, Property> getProperties() {
+	public Map<String, String> getProperties() {
 		return properties;
 	}
 
@@ -26,25 +26,17 @@ public class Template implements org.axnaar.rptools.inventoryengine.entity.Templ
 		return result;
 	}
 
-	@Override
-	public Property setProperty(String name, Property property) {
-		if(properties.containsKey(name)){
-			properties.put(name, property);
-			return null;
-		}else{
-			return addProperty(name, property);
-		}
-	}
+
 
 	@Override
-	public Property addProperty(String name, Property property) {
+	public String addProperty(String name, String property) {
 		properties.put(name, property);
 		return property;
 	}
 
 	@Override
-	public Property removeProperty(String name) {
-		Property property = properties.get(name);
+	public String removeProperty(String name) {
+		String property = properties.get(name);
 		if(property != null){
 			properties.remove(property);
 			return property;
@@ -68,4 +60,19 @@ public class Template implements org.axnaar.rptools.inventoryengine.entity.Templ
 	public Template(String name) {
 		setName(name);
 	}
+	
+	public List<String> buildPropsFromList(Map<String, String> props){
+		List<String> notFound = new LinkedList<String>();
+		for(String key : props.keySet()){
+			Class<? extends Property> propType = PropertyFactory.getPropByType( props.get(key));
+			if(propType != null)
+				this.addProperty(key, props.get(key));
+			else
+				notFound.add(key);
+		}
+		
+		return notFound;
+		
+	}
+	
 }

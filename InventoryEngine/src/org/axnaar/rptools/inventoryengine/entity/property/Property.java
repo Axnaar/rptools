@@ -1,12 +1,15 @@
 package org.axnaar.rptools.inventoryengine.entity.property;
 
-public interface Property {
+public abstract class Property {
 	
 	
-	public String getSelectorName();
-	public String getValue();
-	public void setValue(String value);
+	public abstract String getSelectorName();
+	public abstract String getValue();
+	public abstract void setValue(String value);
 
+	public String toString(){
+		return "(" + this.getClass().getName() + ") : " + getValue() ;
+	}
 	
 	
 }

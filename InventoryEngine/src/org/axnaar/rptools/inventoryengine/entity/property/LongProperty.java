@@ -1,6 +1,6 @@
 package org.axnaar.rptools.inventoryengine.entity.property;
 
-public class LongProperty implements Property {
+public class LongProperty extends Property {
 	
 	private Long value = 0l;
 	
@@ -18,6 +18,7 @@ public class LongProperty implements Property {
 	public void setValue(String value) {
 		this.value = Long.valueOf(value);
 	}
+
 
 	
 
